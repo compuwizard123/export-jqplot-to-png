@@ -18,7 +18,7 @@ $(function() {
     function _jqpToImage(el, x_offset, y_offset) {
       var tagname = el.tagName.toLowerCase();
       var p = $(el).position();
-      var css = getComputedStyle(el);
+      var css = window.getComputedStyle ?  window.getComputedStyle(el) : el.currentStyle; // for IE < 9
       var left = x_offset + p.left + parseInt(css.marginLeft) + parseInt(css.borderLeftWidth) + parseInt(css.paddingLeft);
       var top = y_offset + p.top + parseInt(css.marginTop) + parseInt(css.borderTopWidth)+ parseInt(css.paddingTop);
 
